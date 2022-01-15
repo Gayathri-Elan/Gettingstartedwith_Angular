@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { PEOPLE } from '../list';
-import { Person } from '../person';
+import { Component, OnInit } from "@angular/core";
+import { PersonService } from "../person.service";
+import { Person } from "../person";
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css'],
+  selector: "app-edit",
+  templateUrl: "./edit.component.html",
+  styleUrls: ["./edit.component.css"],
 })
 export class EditComponent implements OnInit {
-  people = PEOPLE;
+  people: Person[] = [];
 
   selectedPerson?: Person;
   onSelect(person: Person): void {
     this.selectedPerson = person;
   }
 
-  constructor() {}
+  constructor(private _personService: PersonService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.people = this._personService.getPeople();
+  }
 }

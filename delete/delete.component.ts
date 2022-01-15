@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { PEOPLE } from '../list';
-import { Person } from '../person';
+import { Component, OnInit } from "@angular/core";
+import { PersonService } from "../person.service";
+import { Person } from "../person";
 
 @Component({
-  selector: 'app-delete',
-  templateUrl: './delete.component.html',
-  styleUrls: ['./delete.component.css'],
+  selector: "app-delete",
+  templateUrl: "./delete.component.html",
+  styleUrls: ["./delete.component.css"],
 })
 export class DeleteComponent implements OnInit {
-  constructor() {}
-  people = PEOPLE;
-  ngOnInit(): void {}
+  people: Person[] = [];
+
+  constructor(private _personService: PersonService) {}
+
+  ngOnInit(): void {
+    this.people = this._personService.getPeople();
+  }
 
   deletePerson(id: number): void {
     let i = this.people.findIndex((e) => e.id === id);
