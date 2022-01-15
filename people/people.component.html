@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="people.component.css" />
+<h2>List of people</h2>
+<table class="people">
+  <tr class="head-row">
+    <td>Employee Id</td>
+    <td>Name</td>
+    <td>E-mail Id</td>
+    <td>Delete Action</td>
+  </tr>
+  <tr
+    class="col1"
+    *ngFor="let person of people; let i = index"
+    (click)="onSelect(person)"
+  >
+    <td>
+      {{ person.id }}
+    </td>
+    <td>
+      {{ person.name }}
+    </td>
+    <td>
+      {{ person.mail }}
+    </td>
+    <td>
+      <button (click)="deletePerson(person.id)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="selectedPerson">
+  <h2>{{ selectedPerson.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ selectedPerson.id }}</div>
+  <div>
+    <label for="person-name">Person name: </label>
+    <input
+      id="person-name"
+      [(ngModel)]="selectedPerson.name"
+      placeholder="name"
+    />
+  </div>
+  <div>
+    <label for="person-mail">Person Mail id: </label>
+    <input
+      id="person-mail"
+      [(ngModel)]="selectedPerson.mail"
+      placeholder="mail"
+    />
+  </div>
+</div>
