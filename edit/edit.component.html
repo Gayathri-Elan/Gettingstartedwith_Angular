@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="edit.component.css" />
+<h2>List of people</h2>
+<table class="people">
+  <tr class="head-row">
+    <td>Employee Id</td>
+    <td>Name</td>
+    <td>E-mail Id</td>
+    <td>Action</td>
+  </tr>
+  <tr class="col1" *ngFor="let person of people; let i = index">
+    <td>
+      {{ person.id }}
+    </td>
+    <td>
+      {{ person.name }}
+    </td>
+    <td>
+      {{ person.mail }}
+    </td>
+    <td>
+      <button (click)="onSelect(person)">Edit</button>
+    </td>
+  </tr>
+</table>
+
+<div class="details" *ngIf="selectedPerson">
+  <h3>{{ selectedPerson.name | uppercase }} Details</h3>
+  <div><span>Id: </span>{{ selectedPerson.id }}</div>
+  <div>
+    <label for="person-name">Person name: </label>
+    <input
+      id="person-name"
+      [(ngModel)]="selectedPerson.name"
+      placeholder="name"
+    />
+  </div>
+  <div>
+    <label for="person-mail">Person Mail id: </label>
+    <input
+      id="person-mail"
+      [(ngModel)]="selectedPerson.mail"
+      placeholder="mail"
+    />
+  </div>
+</div>

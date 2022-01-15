@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="people.component.css" />
+<h2>List of people</h2>
+<table class="people">
+  <tr class="head-row">
+    <td>Employee Id</td>
+    <td>Name</td>
+    <td>E-mail Id</td>
+  </tr>
+  <tr *ngFor="let person of people; let i = index" href="editpeople.html">
+    <td>
+      {{ person.id }}
+    </td>
+    <td>
+      {{ person.name }}
+    </td>
+    <td>
+      {{ person.mail }}
+    </td>
+  </tr>
+</table>

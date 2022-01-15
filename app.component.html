@@ -1,0 +1,19 @@
+<h1>{{ title }}</h1>
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+<nav>
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active">Display List</a></li>
+    <li>
+      <a routerLink="/edit" routerLinkActive="active"
+        >Edit person information</a
+      >
+    </li>
+    <li>
+      <a routerLink="/delete" routerLinkActive="active"
+        >Delete a person's information</a
+      >
+    </li>
+  </ul>
+</nav>
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>

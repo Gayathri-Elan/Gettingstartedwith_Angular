@@ -1,0 +1,11 @@
+table {
+  border-spacing: 50px 50px;
+}
+
+.head-row {
+  font-weight: bold;
+}
+
+.details {
+  font-size: 40px;
+}
